@@ -11,7 +11,7 @@ namespace MVC5.UserRegisterFormApps.Models.Services
         Context.Mvc5UserRegisterEntities context;
         public RegisterUserService()
         {
-
+            context = new Context.Mvc5UserRegisterEntities();
         }
 
         public outputResult<RegisterUser> addNewUser(RegisterUser userData)
@@ -35,7 +35,7 @@ namespace MVC5.UserRegisterFormApps.Models.Services
                     createdDate = userData.createdDate
                 });
 
-                return context.SaveChanges() > 0 ? new outputResult<RegisterUser>() { isSuccess = true, dataItem = userData } : new outputResult<RegisterUser>() { isSuccess = false, message = "Kayıt işleminde hata" };
+                return context.SaveChanges() > 0 ? new outputResult<RegisterUser>() { isSuccess = true, message = "Kayıt başarılı", dataItem = userData } : new outputResult<RegisterUser>() { isSuccess = false, message = "Kayıt işleminde hata" };
             }
             catch (Exception ex)
             {

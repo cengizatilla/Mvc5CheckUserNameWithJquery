@@ -1,0 +1,42 @@
+﻿@using MVC5.UserRegisterFormApps.Models.Entities
+@model outputResultList<RegisterUser>
+
+@{
+    Layout = "~/Views/Shared/masterPage.cshtml";
+}
+
+
+
+    <div class="col-md-12">
+        @if (Model == null || Model.dataList == null || Model.dataList.Count <= 0)
+        {
+            <div class="alert alert-warning" role="alert">
+                Listelenecek Kayıt Bulunamadı !
+            </div>
+        }
+        else
+        {
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">İsim</th>
+                        <th scope="col">Soyisim</th>
+                        <th scope="col">Email Adres</th>
+                        <th scope="col">Kayıt Tarih</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.dataList)
+                    {
+                        <tr>
+                            <th scope="row">@item.name</th>
+                            <td>@item.lastName</td>
+                            <td>@item.emailAddress</td>
+                            <td>@item.createdDate.ToString("dd.MM.yyyy")</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+    </div>
+</div>

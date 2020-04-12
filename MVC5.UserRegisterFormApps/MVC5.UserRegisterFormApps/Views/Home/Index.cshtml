@@ -1,36 +1,10 @@
 ﻿@model MVC5.UserRegisterFormApps.Models.Entities.RegisterUser
 @{
-    Layout = null;
+    Layout = "~/Views/Shared/masterPage.cshtml";
 }
 
-<!DOCTYPE html>
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>MVC5 - Kullanıcı kayıt formu uygulaması</title>
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
-    <!-- Optional theme -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-</head>
-<body>
-    <div>
-        <div class="col-md-12">
-            <nav class="navbar navbar-default">
-                <div class="container-fluid">
-                    <div class="navbar-header">
-                        <a class="navbar-brand" href="#">
-                            <img alt="Brand" src="...">
-                        </a>
-                    </div>
-                </div>
-            </nav>
-        </div>
         <div class="col-md-12">
             <div class="col-md-3"></div>
             <div class="col-md-6">
@@ -51,7 +25,7 @@
                     <div class="form-group">
                         <label class="control-label col-sm-2" for="email">Email Adres:</label>
                         <div class="col-sm-10">
-                            <input type="email" class="form-control" id="emailAddress" name="emailAddress">
+                            <input type="email" class="form-control" id="emailAddress" name="emailAddress" onchange="checkEmailAddress()">
                         </div>
                     </div>
                     <div class="form-group">
@@ -63,12 +37,24 @@
                     <div class="form-group">
                         <div class="col-sm-offset-2 col-sm-10">
                             <button type="submit" class="btn btn-default">Kayıt Oluştur</button>
+                            <a class="btn btn-primary" href="@Url.Action("getUserList","Home")">Kayıtlı Kullanıcı Listesi</a>
                         </div>
                     </div>
+
+                    if (ViewBag.isSuccess != null && ViewBag.isSuccess == true)
+                    {
+                        <div class="alert alert-success" role="alert">
+                            @ViewBag.message
+                        </div>
+                    }
+                    else if (ViewBag.isSuccess != null && ViewBag.isSuccess == false)
+                    {
+                        <div class="alert alert-warning" role="alert">
+                            @ViewBag.message
+                        </div>
+                    }
                 }
             </div>
             <div class="col-md-3"></div>
         </div>
     </div>
-</body>
-</html>

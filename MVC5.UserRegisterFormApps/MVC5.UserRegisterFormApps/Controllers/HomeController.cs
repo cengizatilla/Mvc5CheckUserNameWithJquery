@@ -30,7 +30,22 @@ namespace MVC5.UserRegisterFormApps.Controllers
                 resultVal = registerUserOperation.addNewUser(userForm);
             }
 
+            ViewBag.isSuccess = resultVal.isSuccess;
+            ViewBag.message = resultVal.message;
+
             return View(userForm);
         }
+
+        public ActionResult getUserList()
+        {
+            outputResultList<RegisterUser> userDataList = null;
+            using (RegisterUserService registerUserOperation = new RegisterUserService())
+            {
+                 userDataList = registerUserOperation.getDataList();
+            }
+            return View(userDataList);
+        }
+
+      
     }
 }

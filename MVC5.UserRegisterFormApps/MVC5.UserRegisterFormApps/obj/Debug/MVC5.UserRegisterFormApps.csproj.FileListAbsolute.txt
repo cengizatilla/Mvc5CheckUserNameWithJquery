@@ -66,3 +66,7 @@ D:\GitHubProfile\Mvc5CheckUserNameWithJquery\MVC5.UserRegisterFormApps\MVC5.User
 D:\GitHubProfile\Mvc5CheckUserNameWithJquery\MVC5.UserRegisterFormApps\MVC5.UserRegisterFormApps\obj\Debug\MVC5.UserRegisterFormApps.csproj.CopyComplete
 D:\GitHubProfile\Mvc5CheckUserNameWithJquery\MVC5.UserRegisterFormApps\MVC5.UserRegisterFormApps\obj\Debug\MVC5.UserRegisterFormApps.dll
 D:\GitHubProfile\Mvc5CheckUserNameWithJquery\MVC5.UserRegisterFormApps\MVC5.UserRegisterFormApps\obj\Debug\MVC5.UserRegisterFormApps.pdb
+D:\GitHubProfile\Mvc5CheckUserNameWithJquery\MVC5.UserRegisterFormApps\MVC5.UserRegisterFormApps\bin\EntityFramework.dll
+D:\GitHubProfile\Mvc5CheckUserNameWithJquery\MVC5.UserRegisterFormApps\MVC5.UserRegisterFormApps\bin\EntityFramework.SqlServer.dll
+D:\GitHubProfile\Mvc5CheckUserNameWithJquery\MVC5.UserRegisterFormApps\MVC5.UserRegisterFormApps\bin\EntityFramework.xml
+D:\GitHubProfile\Mvc5CheckUserNameWithJquery\MVC5.UserRegisterFormApps\MVC5.UserRegisterFormApps\bin\EntityFramework.SqlServer.xml
