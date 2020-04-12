@@ -1,0 +1,13 @@
+﻿create database Mvc5UserRegister
+Go
+create table registeredUsers
+(
+ID uniqueidentifier primary key,
+name nvarchar(50),
+lastName nvarchar(50),
+emailAddress nvarchar(100) not null unique,
+password nvarchar(20),
+createdDate datetime,
+isActive bit,
+activationCode nvarchar(200)
+)

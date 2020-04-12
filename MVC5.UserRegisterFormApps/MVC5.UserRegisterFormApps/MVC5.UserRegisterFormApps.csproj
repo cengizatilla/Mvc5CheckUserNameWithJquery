@@ -43,7 +43,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -89,6 +97,17 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
+    <Content Include="Models\Context\userRegisterContextDb.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>userRegisterContextDb.Context.cs</LastGenOutput>
+      <DependentUpon>userRegisterContextDb.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\Context\userRegisterContextDb.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>userRegisterContextDb.edmx</DependentUpon>
+      <LastGenOutput>userRegisterContextDb.cs</LastGenOutput>
+    </Content>
+    <Content Include="TSQLCode\TsqlDatabaseCode.txt" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -98,11 +117,40 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Context\registeredUser.cs">
+      <DependentUpon>userRegisterContextDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Context\userRegisterContextDb.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>userRegisterContextDb.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Context\userRegisterContextDb.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>userRegisterContextDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Context\userRegisterContextDb.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>userRegisterContextDb.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Entities\outputBase.cs" />
+    <Compile Include="Models\Entities\outputResult.cs" />
+    <Compile Include="Models\Entities\outputResultList.cs" />
     <Compile Include="Models\Entities\RegisterUser.cs" />
+    <Compile Include="Models\Services\RegisterUserService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
+    <EntityDeploy Include="Models\Context\userRegisterContextDb.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>userRegisterContextDb.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Context\userRegisterContextDb.edmx.diagram">
+      <DependentUpon>userRegisterContextDb.edmx</DependentUpon>
+    </Content>
     <None Include="packages.config" />
     <Content Include="Views\Home\Index.cshtml" />
     <None Include="Web.Debug.config">
@@ -114,9 +162,10 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\Context\" />
-    <Folder Include="Models\Services\" />
     <Folder Include="Views\JsonOperation\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

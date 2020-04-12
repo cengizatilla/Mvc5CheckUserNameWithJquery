@@ -1,4 +1,5 @@
 ﻿using MVC5.UserRegisterFormApps.Models.Entities;
+using MVC5.UserRegisterFormApps.Models.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,9 +20,16 @@ namespace MVC5.UserRegisterFormApps.Controllers
         [HttpPost]
         public ActionResult Index(RegisterUser userForm)
         {
+            outputResult<RegisterUser> resultVal = null;
             userForm.ID = Guid.NewGuid();
             userForm.createdDate = DateTime.Now;
             userForm.activationCode = userForm.ID.ToString("N").ToUpper();
+            
+            using (RegisterUserService registerUserOperation = new RegisterUserService())
+            {
+                resultVal = registerUserOperation.addNewUser(userForm);
+            }
+
             return View(userForm);
         }
     }

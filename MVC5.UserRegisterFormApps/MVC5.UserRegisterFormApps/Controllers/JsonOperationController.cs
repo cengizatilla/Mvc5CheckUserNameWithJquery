@@ -8,9 +8,11 @@ namespace MVC5.UserRegisterFormApps.Controllers
 {
     public class JsonOperationController : Controller
     {
-        public JsonResult checkUserName(string userNameVal)
+        public JsonResult checkEmailAddress(string emailAddressVal)
         {
-            return Json("", JsonRequestBehavior.AllowGet);
+            Models.Services.RegisterUserService userService = new Models.Services.RegisterUserService();
+            var result = userService.checkEmailAddres(emailAddressVal);
+            return Json(result, JsonRequestBehavior.AllowGet);
         }
     }
 }
